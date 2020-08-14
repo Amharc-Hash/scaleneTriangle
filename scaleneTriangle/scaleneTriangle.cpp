@@ -1,16 +1,16 @@
 #include<stdio.h>
 #include<math.h>
-int checkTri(float x, float y, float z);
-float area(float x, float y, float z);
+double checkTri(double x, double y, double z);
+double area(double x, double y, double z);
 
 int main()
 {
-	float x, y, z;
+	double x, y, z;
 	printf("Input side lenght of triangle (follow this pattern : 3 4 5) : ");
-	scanf("%f %f %f", &x, &y, &z);
+	scanf("%lf %lf %lf", &x, &y, &z);
 	if ( checkTri(x,y,z) == 1)
 	{
-		printf("Area of Scalene triangle : %.2f", area(x,y,z));
+		printf("Area of Scalene triangle : %.5lf", area(x,y,z));
 	}
 	else if (checkTri(x, y, z) == 0)
 	{
@@ -20,8 +20,8 @@ int main()
 	return 0;
 }
 
-int checkTri(float x, float y, float z) {
-	if ( x+y>z && y+z>x && x+z>y)
+double checkTri(double x, double y, double z) {
+	if ( x+y>z && y+z>x && x+z>y && x>0 && y>0 && z>0)
 	{
 		return 1;
 	}
@@ -31,8 +31,8 @@ int checkTri(float x, float y, float z) {
 	}
 }
 
-float area(float x, float y, float z) {
-	float s,area;
+double area(double x, double y, double z) {
+	double s, area;
 	s = (x + y + z) / 2;
 	area = sqrt(s*(s - x)*(s - y)*(s - z));
 	return area;
